@@ -8,6 +8,10 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="Hexagon TileMapLayer"
@@ -18,7 +22,6 @@ config/icon="uid://xo8jeldo62n5"
 
 [debug]
 
-settings/gdscript/always_track_call_stacks=true
 gdscript/warnings/directory_rules={
 "res://addons": 1
 }

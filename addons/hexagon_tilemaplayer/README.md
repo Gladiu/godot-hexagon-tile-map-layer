@@ -59,7 +59,8 @@ func _ready():
         return true
 
     # Enable debug visualization (optional)
-    debug_mode = DebugModeFlags.TILES_COORDS | DebugModeFlags.CONNECTIONS
+    # 1 = TILES_COORDS, 2 = CONNECTIONS (combine with |)
+    debug_mode = 1 | 2
 ```
 
 See the `example.tscn` scene for a complete demo of the features.

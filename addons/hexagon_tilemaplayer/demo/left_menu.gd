@@ -1,6 +1,8 @@
 extends VBoxContainer
 
 const DemoManager = preload("uid://c5t8k8u70hsgr")
+const DEBUG_FLAG_TILES_COORDS := 1
+const DEBUG_FLAG_CONNECTIONS := 2
 
 @onready var demo: DemoManager = %DemoManager
 
@@ -26,12 +28,10 @@ func _ready() -> void:
 	)
 	button_enable_pathfinding.button_pressed = hexagon_tile_map_layer_horizontal.pathfinding_enabled
 	button_display_pathfinding_connections.button_pressed = (
-		hexagon_tile_map_layer_horizontal.debug_mode
-		& HexagonTileMapLayer.DebugModeFlags.CONNECTIONS
+		hexagon_tile_map_layer_horizontal.debug_mode & DEBUG_FLAG_CONNECTIONS
 	)
 	button_display_tiles_coords.button_pressed = (
-		hexagon_tile_map_layer_horizontal.debug_mode
-		& HexagonTileMapLayer.DebugModeFlags.TILES_COORDS
+		hexagon_tile_map_layer_horizontal.debug_mode & DEBUG_FLAG_TILES_COORDS
 	)
 
 
@@ -80,12 +80,12 @@ func _on_enable_pathfinding_toggled(toggled_on: bool) -> void:
 func update_debug_mode() -> void:
 	demo.tile_map.debug_mode = (
 		(
-			HexagonTileMapLayer.DebugModeFlags.CONNECTIONS
+			DEBUG_FLAG_CONNECTIONS
 			if button_display_pathfinding_connections.button_pressed
 			else 0
 		)
 		+ (
-			HexagonTileMapLayer.DebugModeFlags.TILES_COORDS
+			DEBUG_FLAG_TILES_COORDS
 			if button_display_tiles_coords.button_pressed
 			else 0
 		)

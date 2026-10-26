@@ -1,0 +1,11 @@
+[configuration]
+entry_symbol = "gdext_rust_init"
+compatibility_minimum = "4.4"
+
+[libraries]
+linux.debug.x86_64 = "res://addons/hexagon_tilemaplayer/rust/target/debug/libhexagon_tilemaplayer.so"
+linux.release.x86_64 = "res://addons/hexagon_tilemaplayer/rust/target/release/libhexagon_tilemaplayer.so"
+windows.debug.x86_64 = "res://addons/hexagon_tilemaplayer/rust/target/debug/hexagon_tilemaplayer.dll"
+windows.release.x86_64 = "res://addons/hexagon_tilemaplayer/rust/target/release/hexagon_tilemaplayer.dll"
+macos.debug = "res://addons/hexagon_tilemaplayer/rust/target/debug/libhexagon_tilemaplayer.dylib"
+macos.release = "res://addons/hexagon_tilemaplayer/rust/target/release/libhexagon_tilemaplayer.dylib"
