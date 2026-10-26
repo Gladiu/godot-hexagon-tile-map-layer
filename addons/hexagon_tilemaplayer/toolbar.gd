@@ -40,9 +40,9 @@ func _on_fix_layout_pressed(old_layout: int):
 	var undo_redo = plugin.get_undo_redo()
 	undo_redo.create_action("Fix Filemap")
 	undo_redo.add_do_method(
-		HexagonTileMap, "update_cells_layout", tilemap, old_layout, tilemap.tile_set.tile_layout
+		tilemap, "update_cells_layout", old_layout, tilemap.tile_set.tile_layout
 	)
 	undo_redo.add_undo_method(
-		HexagonTileMap, "update_cells_layout", tilemap, tilemap.tile_set.tile_layout, old_layout
+		tilemap, "update_cells_layout", tilemap.tile_set.tile_layout, old_layout
 	)
 	undo_redo.commit_action()

@@ -15,25 +15,15 @@ func _get_plugin_icon():
 
 
 func _enter_tree():
-	add_custom_type(
-		"HexagonTileMapLayer",
-		"TileMapLayer",
-		preload("hexagon_tilemaplayer.gd"),
-		preload("uid://chl4qyjdth4vj")
-	)
+	# HexagonTileMapLayer and HexagonTileMap are provided by the GDExtension
+	# library (see hexagon_tilemaplayer.gdextension). They are already registered
+	# in ClassDB, so no add_custom_type() call is needed here.
 	selection = EditorInterface.get_selection()
 	selection.selection_changed.connect(_on_selection_changed)
 
 
 func _exit_tree():
-	remove_custom_type("HexagonTileMapLayer")
 	selection.selection_changed.disconnect(_on_selection_changed)
-
-
-func _ready() -> void:
-	# Because of https://github.com/godotengine/godot/issues/72406
-	ResourceSaver.save(preload("hexagon_tilemaplayer.gd"))
-	ResourceSaver.save(preload("hexagon_tilemap.gd"))
 
 
 func _on_selection_changed():
